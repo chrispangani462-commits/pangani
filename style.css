@@ -68,7 +68,7 @@ nav a:hover{
 /* HERO SECTION */
 .hero{
   height: 70vh;
-  background-image:url("../ASSETS/IMAGES/vibrant.png");
+  background-image:url("vibrant.png");
   background-size: cover;
   background-position: center;
 
@@ -420,4 +420,5 @@ nav a:hover{
     font-size: 15px;
   }
 }
+
 
