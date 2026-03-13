@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VibeZed</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="CSS/style.css">
 </head>
 <body>
 
@@ -17,11 +17,11 @@
 
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="songs.html">Top Hits</a></li>
-        <li><a href="artists.html">Artists</a></li>
-        <li><a href="upload.html">Upload</a></li>
-        <li><a href="about.html">About</a></li>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="songs.html">TOP HITS</a></li>
+        <li><a href="artists.html">ARTISTS</a></li>
+        <li><a href="upload.html">UPLOAD</a></li>
+        <li><a href="about.html">ABOUT</a></li>
       </ul>
     </nav>
 
@@ -40,7 +40,7 @@
           <h1>Stream and download <br> The Best Malawian Vibes</h1>
           <p>Discover new music, support artists and feel the rhythm of Malawi</p>
 
-          <button class="cta-btn">Start Listening</button>
+          <button class="cta-btn" id="start-listening">Start Listening</button>
         </div>
         
       </section>
@@ -49,31 +49,32 @@
 
         <h2>Featured Songs</h2>
 
-        <div class="songs-row">
+        <div class="songs-row" id="songs-section">
 
           <div class="song-card" 
             data-title="Vomela"
             data-artist="Quest"
-            data-src="song1.mp3"
-            data-cover="quest.jfif">
+            data-src="ASSETS/MUSIC/song1.mp3"
+            data-cover="ASSETS/IMAGES/quest.jfif">
             <div class="song-img">
-            <img src="quest.jfif" alt="Vomela">
+            <img src="ASSETS/IMAGES/quest.jfif" alt="Vomela">
             <div class="play-btn">▶</div>
             </div>
-          
-            <h3>Vomela</h3>
-            <p>Quest</p>
-            
+            <div>
+              <h3>Vomela</h3>
+              <p>Quest</p>
+            </div>
+
           </div>
 
           <div class="song-card"  
             data-title="Sunandi"
             data-artist="Kell Kay"
-            data-src="kell kay.mp3"
-            data-cover="kell kay.jpg">
+            data-src="ASSETS/MUSIC/kell kay.mp3"
+            data-cover="ASSETS/IMAGES/kell kay.jpg">
 
             <div class="song-img">
-            <img src="kell kay.jpg" alt="Sunandi">
+            <img src="ASSETS/IMAGES/kell kay.jpg" alt="Sunandi">
             <div class="play-btn">▶</div>
             </div>
             <h3>Sunandi</h3>
@@ -83,11 +84,11 @@
           <div class="song-card" 
             data-title="Hawaii"
             data-artist="Charisma ft Quest"
-            data-src="charisma.mp3"
-            data-cover="charisma.jpg">
+            data-src="ASSETS/MUSIC/charisma.mp3"
+            data-cover="ASSETS/IMAGES/charisma.jpg">
             
             <div class="song-img">
-            <img src="charisma.jpg" alt="Hawaii">
+            <img src="ASSETS/IMAGES/charisma.jpg" alt="Hawaii">
             <div class="play-btn">▶</div>
             </div>
             <h3>Hawaii</h3>
@@ -97,10 +98,10 @@
           <div class="song-card" 
             data-title="M'malele"
             data-artist="Driemo ft Teddy Makadi"
-            data-src="driemo.mp3"
-            data-cover="driemo.jpg">
+            data-src="ASSETS/MUSIC/driemo.mp3"
+            data-cover="ASSETS/IMAGES/driemo.jpg">
             <div class="song-img">
-            <img src="driemo.jpg" alt="M'malele">
+            <img src="ASSETS/IMAGES/driemo.jpg" alt="M'malele">
             <div class="play-btn">▶</div>
             </div>
             <h3>M'malele</h3>
@@ -110,10 +111,10 @@
           <div class="song-card"
             data-title="Ndili kuti"
             data-artist="Temwah"
-            data-src="temwa.mp3"
-            data-cover="temwa.jpg">
+            data-src="ASSETS/MUSIC/temwa.mp3"
+            data-cover="ASSETS/IMAGES/temwa.jpg">
             <div class="song-img">
-            <img src="temwa.jpg" alt="Ndili kuti">
+            <img src="ASSETS/IMAGES/temwa.jpg" alt="Ndili kuti">
             <div class="play-btn">▶</div>
             </div>
             <h3>Ndili kuti</h3>
@@ -123,10 +124,10 @@
           <div class="song-card" 
             data-title="Zowawa"
             data-artist="Zeze Kingston"
-            data-src="zeze.mp3"
-            data-cover="zeze.jpg">
+            data-src="ASSETS/MUSIC/zeze.mp3"
+            data-cover="ASSETS/IMAGES/zeze.jpg">
             <div class="song-img">
-            <img src="zeze.jpg" alt="Zowawa">
+            <img src="ASSETS/IMAGES/zeze.jpg" alt="Zowawa">
             <div class="play-btn">▶</div>
             </div>
             <h3>Zowawa</h3>
@@ -146,11 +147,11 @@
 
       <div class="player-left">
 
-        <img src="jb.jpg">
+        <img src="ASSETS/IMAGES/jb.jpg">
 
         <div>
-          <h4>Rise Up</h4>
-          <p>Jay B</p>
+          <h4 id="player-title">Rise Up</h4>
+          <p id="player-artist">Jay B</p>
         </div>
 
       </div>
@@ -178,9 +179,9 @@
 
      </div>
 
-     <audio id="audio-player" src="song1.mp3"></audio>
+     <audio id="audio-player" src="ASSETS/MUSIC/song1.mp3"></audio>
 
-     <script src="script.js"></script>
+     <script src="JS/script.js"></script>
 </body>
 </html>
 
