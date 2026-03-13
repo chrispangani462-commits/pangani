@@ -1,3 +1,4 @@
+// Pausing or playing  a song on the music player 
 const playBtn = document.getElementById("play");
 const audio = document.getElementById("audio-player");
 
@@ -20,6 +21,7 @@ playBtn.addEventListener("click",() => {
 
 });
 
+// song card playing a song
 const songCards = document.querySelectorAll(".song-card");
 
 songCards.forEach(card => {
@@ -40,6 +42,7 @@ songCards.forEach(card => {
 
 });
 
+// Updating current time and duration on the music player
 const progress = document.getElementById("progress");
 const currentTimeEl = document.getElementById("current-time");
 const durationEl = document.getElementById("duration");
@@ -84,8 +87,11 @@ progress.addEventListener("input", () => {
   audio.currentTime = (progress.value / 100) * duration;
 });
 
+// Updating artist name, song title and song cover on the music player
 document.addEventListener("DOMContentLoaded", () => {
 
+  const playerTitle = document.getElementById("player-title");
+  const playerArtist = document.getElementById("player-artist");
   const songCards = document.querySelectorAll(".song-card");
   const audio = document.getElementById("audio-player"); 
   const currentTimeEl = document.getElementById("current-time");
@@ -102,8 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
       audio.src = src;
       audio.play();
 
-      document.querySelector(".song-card h3").textContent = title;
-      document.querySelector(".song-card p").textContent = artist;
+      playerTitle.textContent = title;
+      playerArtist.textContent = artist;
       document.querySelector(".player-left img").src = cover;
 
       progress.value = 0;
@@ -112,3 +118,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// Start listening button
+const StartBtn = document.getElementById("start-listening");
+
+const featuredSongs = document.getElementById("songs-section");
+
+StartBtn.addEventListener("click", () => {
+  featuredSongs.scrollIntoView({ behavior: "smooth" });
+});
+
+// Highlight the first card when scrolled
+StartBtn.addEventListener("click", () => {
+  featuredSongs.scrollIntoView({ behavior:"smooth" });
+
+  const firstSong = featuredSongs.querySelector(".song-card");
+  if(firstSong){
+    firstSong.classList.add("highlight");
+    setTimeout(() =>
+    firstSong.classList.remove("highlight"), 1500);
+  }
+});
+
