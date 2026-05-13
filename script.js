@@ -1,16 +1,16 @@
-// Pausing or playing  a song on the music player 
+// Pausing or playing a song on the music player 
 const playBtn = document.getElementById("play");
 const audio = document.getElementById("audio-player");
 
 let isPlaying = false;
 
-playBtn.addEventListener("click",() => {
+playBtn.addEventListener("click", () => {
 
-  if(isPlaying){
+  if (isPlaying) {
     audio.pause();
     playBtn.textContent = "▶";
 
-  }else{
+  } else {
 
     audio.play();
     playBtn.textContent = "⏸";
@@ -28,17 +28,22 @@ songCards.forEach(card => {
 
   card.addEventListener("click", () => {
 
-  const song = card.getAttribute("data-song");
+    songCards.forEach(c =>
+      c.classList.remove("playing")
+    );
+    this.classList.add("playing");
 
-  audio.src = song;
+    const song = card.getAttribute("data-song");
 
-  audio.play();
+    audio.src = song;
 
-  playBtn.textContent = "⏸";
+    audio.play();
 
-  isPlaying = true;
+    playBtn.textContent = "⏸";
 
-});
+    isPlaying = true;
+
+  });
 
 });
 
@@ -54,7 +59,7 @@ audio.addEventListener("timeupdate", () => {
   let currentMinutes = Math.floor(audio.currentTime / 60);
   let currentSeconds = Math.floor(audio.currentTime % 60);
 
-  if(currentSeconds < 10){
+  if (currentSeconds < 10) {
     currentSeconds = "0" + currentSeconds;
   }
 
@@ -63,7 +68,7 @@ audio.addEventListener("timeupdate", () => {
   let durationMinutes = Math.floor(audio.duration / 60);
   let durationSeconds = Math.floor(audio.duration % 60);
 
-  if(durationSeconds < 10){
+  if (durationSeconds < 10) {
     durationSeconds = "0" + durationSeconds;
   }
 
@@ -75,8 +80,7 @@ audio.addEventListener("loadedmetadata", () => {
 
   const durationMinutes = Math.floor(audio.duration / 60);
   let durationSeconds = Math.floor(audio.duration % 60);
-  if(durationSeconds < 10)
-  { durationSeconds = "0" + durationSeconds; }
+  if (durationSeconds < 10) { durationSeconds = "0" + durationSeconds; }
   durationEl.textContent = durationMinutes + ":" + durationSeconds;
 });
 
@@ -93,12 +97,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const playerTitle = document.getElementById("player-title");
   const playerArtist = document.getElementById("player-artist");
   const songCards = document.querySelectorAll(".song-card");
-  const audio = document.getElementById("audio-player"); 
+  const audio = document.getElementById("audio-player");
   const currentTimeEl = document.getElementById("current-time");
-  const progress = document.getElementById("progress"); 
+  const progress = document.getElementById("progress");
 
   songCards.forEach(card => {
-    card.addEventListener("click",() =>{
+    card.addEventListener("click", () => {
 
       const title = card.dataset.title;
       const artist = card.dataset.artist;
@@ -130,13 +134,31 @@ StartBtn.addEventListener("click", () => {
 
 // Highlight the first card when scrolled
 StartBtn.addEventListener("click", () => {
-  featuredSongs.scrollIntoView({ behavior:"smooth" });
+  featuredSongs.scrollIntoView({ behavior: "smooth" });
 
   const firstSong = featuredSongs.querySelector(".song-card");
-  if(firstSong){
+  if (firstSong) {
     firstSong.classList.add("highlight");
     setTimeout(() =>
-    firstSong.classList.remove("highlight"), 1500);
+      firstSong.classList.remove("highlight"), 1500);
   }
 });
 
+// MOBILE MENU
+const menuToggle = document.querySelector(".menu-toggle");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+menuToggle.addEventListener("click", () => 
+  {
+    mobileMenu.classList.toggle("active");
+  });
+
+
+// MOBILE SEARCH
+const searchIcon = document.querySelector(".search-icon");
+const mobileSearch = document.querySelector(".mobile-search");
+
+searchIcon.addEventListener("click", () => 
+  {
+    mobileSearch.classList.toggle("active");
+  });
