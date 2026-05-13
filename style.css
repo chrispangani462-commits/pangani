@@ -16,10 +16,12 @@ body{
   justify-content: space-between;
   align-items: center;
 
-  padding: 20px 40px;
+  padding: 5px 25px;
   background: #14112a;
+  position: sticky;
+  top: 0;
 
-  flex-wrap: wrap;
+  z-index: 1000;
 
 }
 
@@ -32,27 +34,157 @@ body{
   color: #8b5cf6;
 }
 
+/* DESKTOP NAV */
+.desktop-nav{
+  display: flex;
+  gap: 25;
+  list-style: none;
+}
+
+.desktop-nav ul li a{
+  text-decoration: none;
+  color: white;
+  font-size: 18px;
+}
+
+/* DESKTOP SEARCH */
+.desktop-search{
+  padding: 10px 15px;
+
+  border: none;
+  border-radius: 8px;
+
+  width: 220px;
+}
+
 nav ul{
   list-style: none;
   display: flex;
   gap: 25px;
+  font-weight: bold;
 }
 
-nav a{
+nav ul li a{
   text-decoration: none;
   color: white;
-  font-size: 16px;
+  font-size: 18px;
+  transition: 0.3s;
 }
 
-nav a:hover{
+nav ul li a:hover{
   color: #8b5cf6;
 }
 
 .search input{
-  padding: 8px;
-  border-radius: 6px;
+  padding: 10px 15px;
+  border-radius: 8px;
   border: none;
+  
+
+  width: 220px;
 }
+
+.mobile-icons{
+  display: none;
+}
+
+/* MOBILE MENU */
+.mobile-menu{
+  position: fixed;
+
+  top: 80px;
+  left: 0;
+
+  width: 100%;
+
+  max-height: 0;
+  overflow: hidden;
+
+  background: #1d1836;
+
+  transition: 0.4s ease;
+
+  opacity: 0;
+
+  z-index: 999;
+}
+
+.mobile-menu.active{
+  max-height: 300px;
+
+  padding: 20px;
+
+  opacity: 1;
+}
+
+.mobile-menu ul{
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 20px;
+}
+
+.mobile-menu ul li{
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+
+  padding-bottom: 10px;
+}
+
+.mobile-menu ul li a{
+  text-decoration: none;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.mobile-menu ul li a:hover{
+  color: #8b5cf6;
+}
+
+/* MOBILE SEARCH */
+.mobile-search{
+  position: fixed;
+
+  top: 80px;
+  left: 0;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+
+  background: #1d1836;
+
+  transition: 0.4s ease;
+
+  opacity: 0;
+
+  z-index: 999;
+}
+
+.mobile-search.active{
+  max-height: 100px;
+
+  padding: 20px;
+
+  opacity: 1;
+}
+
+.mobile-search input{
+  width: 100%;
+
+  padding: 12px;
+
+  border: none;
+  border-radius: 10px;
+
+  outline: none;
+}
+
+
+
+
+
 
 /* MAIN CONTENT */
 .container{
@@ -76,6 +208,7 @@ nav a:hover{
   align-items: center;
 
   border-radius: 12px;
+  
 }
 
 .hero-content{
@@ -342,6 +475,42 @@ nav a:hover{
   color: #aaa;
 }
 
+.equalizer{
+  display: none;
+  gap: 3px;
+  height: 10px;
+  margin-top: 6px;
+ 
+}
+
+.song-card.playing .equalizer{
+  display: flex;
+}
+
+.equalizer span{
+  width: 3px;
+  height: 100%;
+  background: #7c5cff;
+  animation: bounce 1s infinite ease-in-out;
+}
+
+.equalizer span:nth-child(2){
+  animation-delay: 0.2s;
+}
+
+.equalizer span:nth-child(3){
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce{
+  0%, 100% {
+    transform: scale(0.3);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+
 
 
 
@@ -360,19 +529,87 @@ nav a:hover{
 /* For Mobile Phones */
 @media (max-width: 768px){
   .navbar{
-    flex-direction: column;
-    align-items: flex-start;
+    padding: 13px;
+    position: sticky;
+  }
+
+  .logo{
+    font-size: 31px;
+  }
+
+  .desktop-nav{
+    display: none;
+  }
+
+  .desktop-search{
+    display: none;
+  }
+
+  /* show mobile icons */
+  .mobile-icons{
+    display: flex;
+    
+    gap: 20px;
+
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  .search-icon:hover{
+    color: #8b5cf6;
+  }
+
+  .menu-toggle:hover{
+    color: #8b5cf6;
+  }
+
+  /* hide navigation */
+  nav{
+    max-height: 0;
+    overflow: hidden;
+
+    width: 100%;
+
+    border-radius: 12px;
+
+    margin-bottom: 15px;
+
+    transition: 0.4s ease;
+
+    opacity: 0;
+  }
+
+  /* show nav when active */
+  nav.active{
+    max-height: 300px;
+    padding: 20px;
+    opacity: 1;
   }
 
   nav ul{
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
+  }
+
+  nav ul li{
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 10px;
+  }
+
+  nav ul li a{
+    font-size: 15px;
+  }
+
+  /* hide search bar */
+  .search{
+    display: none;
+    width: 100%;
     margin-top: 10px;
   }
 
-  .search{
-    width: 100%;
-    margin-top: 10px;
+  /* show when active */
+  .search.active{
+    display: block;
   }
 
   .search input{
@@ -426,5 +663,4 @@ nav a:hover{
     font-size: 15px;
   }
 }
-
 
