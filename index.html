@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VibeZed</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 
@@ -15,7 +16,18 @@
       Vibe<span>Zed</span>
     </div>
 
-    <nav>
+    <!-- MOBILE ICONS -->
+     <div class="mobile-icons">
+
+      <!-- search icon-->
+      <i class="fas fa-search search-icon"></i>
+
+      <!-- hamburger -->
+       <i class="fas fa-bars menu-toggle"></i>
+     </div>
+
+     <!-- DESKTOP NAV -->
+    <nav class="desktop-nav">
       <ul>
         <li><a href="index.html">HOME</a></li>
         <li><a href="songs.html">TOP HITS</a></li>
@@ -25,11 +37,29 @@
       </ul>
     </nav>
 
-    <div class="search">
+    <div class="search desktop-search">
       <input type="text" placeholder="Search music...">
     </div>
 
    </header>
+
+   <!-- MOBILE DROPDOWN MENU -->
+    <div class="mobile-menu">
+      <ul>
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="songs.html">TOP HITS</a></li>
+        <li><a href="artists.html">ARTISTS</a></li>
+        <li><a href="upload.html">UPLOAD</a></li>
+        <li><a href="about.html">ABOUT</a></li>
+      </ul>
+
+    </div>
+
+    <div class="mobile-search">
+      <input type="text" placeholder="Search music...">
+    </div>
+
+
 
    <!-- MAIN CONTENT -->
     <main class="container">
@@ -60,10 +90,15 @@
             <img src="quest.jfif" alt="Vomela">
             <div class="play-btn">▶</div>
             </div>
-            <div>
+          
               <h3>Vomela</h3>
               <p>Quest</p>
-            </div>
+
+              <div class="equalizer">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div> 
 
           </div>
 
@@ -159,11 +194,10 @@
       <div class="player-center">
 
       <div class="player-controls">
-        
         <button>⏮</button>
         <button id="play">▶</button>
         <button>⏭</button>
-      
+        
       </div>
 
       <div class="progress-container">
@@ -184,9 +218,3 @@
      <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
-
-
